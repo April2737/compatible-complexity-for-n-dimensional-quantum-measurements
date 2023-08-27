@@ -6,6 +6,8 @@
 #
 #   last update: August, 2023
 
+# =====================================
+
 import numpy as np
 from numpy import linalg as LA
 
@@ -25,11 +27,10 @@ eta = 0.114727    # We want to find the biggest eta that makes all parent elemen
 decimal_point = 6
 
 
-
 j = complex(0,1)
 
 
-# Lambda matrices for qutrit POVMs ========================================
+# generators for qutrit POVMs ========================================
 
 
 X1 = np.array([[0,1,0],[1,0,0],[0,0,0]])
@@ -46,7 +47,7 @@ if d_POVM == 3:
   coef_lambda = 3/2     # the coef. before lambda*\hat{lambda} in the formula of parent element
 
 
-# lambda matrices for 4-dimensional POVMs ================================================================================
+# generators for 4-dimensional POVMs ================================================================================
 
 M_u12 = np.array([[0,1,0,0],[1,0,0,0],[0,0,0,0],[0,0,0,0]])    # Matrix u12
 M_u13 = np.array([[0,0,1,0],[0,0,0,0],[1,0,0,0],[0,0,0,0]])
@@ -71,10 +72,9 @@ if d_POVM == 4:
   coef_lambda = 2
 
 
-# Create the set of all combinations of N matrices chosen from the set of all lambda matrices =============================================================
+# Create the set of all combinations of N matrices chosen from the set of all generators =============================================================
 
-
-chooseMatrices = list(combinations(Lambda_matrices, N))    # a list from [0]
+chooseMatrices = list(combinations(Lambda_matrices, N))   
 
 
 if chooseMatrices == []:      # Make sure N <= d_POVM
@@ -84,7 +84,7 @@ if chooseMatrices == []:      # Make sure N <= d_POVM
 
 # Create a list for the "+/-" sign in the formula of parent element =====================================
 
-zero_one_list = list(product(range(2), repeat=N))     # a list with length 2^N
+zero_one_list = list(product(range(2), repeat=N))     # a list of length 2^N
 
 
 
@@ -101,7 +101,6 @@ while all_parent_pos == 0:
 
   for j in range(len(chooseMatrices)):    # A Loop checks all combinations of N matrices
 
-
     for i_M_parent_element in range(N):
       M_parent_element[i_M_parent_element] = chooseMatrices[j][i_M_parent_element]
 
@@ -110,7 +109,7 @@ while all_parent_pos == 0:
 
 
     for i in range(2**N):      # Create parent element one by one
-      parent_element = np.identity(d_POVM)   # We drop the overall coeffient (1/(2^N)) for parent element
+      parent_element = np.identity(d_POVM)   # We drop the overall coeffient (1/(2^N)) for parent element since it does not affect positivity
 
       for k in range(N):
         parent_element = parent_element + coef_lambda * eta * (zero_one_list[i][k]*2-1) * M_parent_element[k]
