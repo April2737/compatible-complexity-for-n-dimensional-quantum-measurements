@@ -23,7 +23,7 @@ k = 3;    % number of elements in a children POVM
 dA=3;   % dimension of system A
 dB=3;   % dimension of system B
 
-c_GM = 1;
+c_GM = 1;   % overall coefficient for Gell-Mann matrices
 
 X1 = [0, c_GM, 0; c_GM, 0, 0; 0, 0, 0];       % Gell-Mann matrix lambda 1
 X2 = [0, 0, c_GM; 0, 0, 0; c_GM, 0, 0];      % lambda 4
