@@ -3,8 +3,8 @@
 %   
 %   authors: Jiaxuan Zhang, Eric Chitambar
 %
-%   requires: This MATLAB code is based on [1] J. Bavaresco, M. T. Quintino, L. Guerini, T. O. Maciel, D. Cavalcanti, and M. Terra Cunha. 
-%   https://git.io/v9znv, (2017). Download the codes and the required tools from this link to use this code.
+%   requires: This MATLAB code is based on "J. Bavaresco, M. T. Quintino, L. Guerini, T. O. Maciel, D. Cavalcanti, and M. Terra Cunha, 
+%   https://git.io/v9znv (2017)". Download the codes and the required tools from this link to use this code.
 %
 %   last update: August, 2023
 
