@@ -16,7 +16,7 @@ rho_AB = [1/3,0,0,0,1/3,0,0,0,1/3;
     0,0,0,0,0,0,0,0,0; 
     0,0,0,0,0,0,0,0,0; 
     0,0,0,0,0,0,0,0,0; 
-    1/3,0,0,0,1/3,0,0,0,1/3];   
+    1/3,0,0,0,1/3,0,0,0,1/3];    % maximally entangled state
 
 N = 4;   % number of childrens
 k = 3;    % number of elements in a children POVM
